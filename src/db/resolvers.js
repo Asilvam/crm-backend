@@ -13,7 +13,10 @@ const crearToken = (user, secret, expiresIn) => {
 
 const resolvers = {
   Query: {
-    obtenerUsuarios: () => "hello world!",
+    obtenerUsuario: async (_, { token }) => {
+      const usuarioId = await jwt.verify(token, process.env.TOKENWORD);
+      return usuarioId;
+    },
   },
   Mutation: {
     nuevoUsuario: async (_, { input }) => {

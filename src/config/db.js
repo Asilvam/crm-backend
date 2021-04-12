@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const conexionDB = async () => {
   try {
-    await mongoose.connect("mongodb://database/cmrbackend", {
+    await mongoose.connect("mongodb://database/crmbackend", {
         useFindAndModify: false,
         useCreateIndex: true,
         useNewUrlParser: true,

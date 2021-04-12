@@ -23,7 +23,7 @@
   }
 
   type Query {
-    obtenerUsuarios: String
+    obtenerUsuario(token:String!): Usuario
   }
 
   type Mutation {
