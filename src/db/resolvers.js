@@ -1,4 +1,5 @@
 const Usuario = require("../models/Usuario");
+const Material = require("../models/Material");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -54,6 +55,15 @@ const resolvers = {
       return {
         token: crearToken(existeUsuario, process.env.TOKENWORD, "24h"),
       };
+    },
+    nuevoMaterial: async (_, { input }) => {
+      try {
+        const material = new Material(input);
+        const resultado = await material.save();
+        return material;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
